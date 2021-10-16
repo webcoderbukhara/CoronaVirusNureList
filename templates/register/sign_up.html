@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/sign_up.css' %}" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+<h1>Registratsion page</h1>
+
+      <form action="{% url 'up' %}" method="POST">
+        {% csrf_token %}
+        <div class="box">
+          <input type="text" name="first_name" required />
+          <span>First name</span>
+        </div>
+
+        <div class="box">
+          <input type="text" name="last_name" required />
+          <span>Last name</span>
+        </div>
+
+        <div class="box">
+          <input type="text" name="user_name_1" required />
+          <span>Username</span>
+        </div>
+
+        <div class="box">
+          <input type="password" name="password_1" class="password" required />
+          <!-- <img
+            class="passImg"
+            src="../../media/icons/eye.svg"
+            alt=""
+            onclick="passwordShow()"
+          /> -->
+          <span>Password</span>
+        </div>
+
+        <div class="box">
+          <input type="password" name="password_2" class="password" required />
+          <!-- <img
+            class="passImg"
+            src="../../media/icons/eye.svg"
+            alt=""
+            onclick="passwordShow()"
+          /> -->
+          <span>Password again</span>
+        </div>
+{% if error %}
+        <p class="err">{{error}}</p>
+        {% endif %} <br>
+        <input type="submit" class="btn" value="Send" />
+        <button class="btnLog"><a href="{% url 'in' %}">Login</a> </button>
+
+        
+      </form>
+    </div>
+    <script src="{% static 'javascript/register.js' %}"></script>
+  </body>
+</html>

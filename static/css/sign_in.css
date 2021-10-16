@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: linear-gradient(to right, #57c1eb 0%, #246fa8 100%); */
+    background-image: url(./../../media/back/Airena\ wallapack\ 129\ \(10\).jpg);
+    background-size: cover;
+}
+.container{
+    position: relative;
+    width: 400px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    
+}
+.container h2{
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #0446c0;
+    text-shadow: 3px 3px 0px #90dafa, 8px 5px 0px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.container form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+ .inputs{
+    height: 40px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 30px;
+}
+.inputs input{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-bottom: 2px #1c3875 solid;
+    outline: none;
+    font-size: 20px;
+    transition: .3s;
+}
+ .inputs input:focus {
+    border-color: #002c88;
+    color: #002c88;
+}
+
+
+ .inputs label{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    pointer-events: none;
+    font-size: 20px;
+    transition: .3s;
+    color: #06266b;
+    font-weight: bold;
+
+}
+.inputs input:focus ~ label,
+.inputs input:valid ~ label{
+    transform: translateY(-28px);
+    font-size: 14px;
+    color: #002c88;
+}
+
+ .inputs img{
+    position: absolute;
+    width: 30px;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.btn{
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 24px;
+    box-shadow: inset 0 1px 0 0 #4d73bf;
+    background: #4267b2;
+    border: solid 1px #4267b2;
+    color: white;
+    text-shadow: 0 1px 0 #3359e5;
+    letter-spacing: 1px;
+    outline: none;
+    transition: .3s;
+    align-self: flex-end;
+}
+.btn:hover{
+    background: #2b54a7;
+    transform: scale(1.05);
+    
+}
+.urlUp{
+    text-decoration: none;
+    color: #2b54a7;
+    font-weight: bold;
+}
+
+
+/* .container:before, .container:after{
+    content: '';
+    position: absolute;
+    border-radius: 10px;
+   top:-2px;
+    left: -2px;
+    background: linear-gradient(45deg, #fb0094, #0000ff,#00ff00, #ffff00,
+    #ff0000, #fb0094, #0000ff,#00ff00, #ffff00,#ff0000);
+    width: calc(100% + 4px);
+    height:  calc(100% + 4px);
+    background-size: 400%;
+    z-index: -1;
+    animation: anime 20s linear infinite;
+
+}
+.container:after{
+    filter: blur(20px);
+}
+@keyframes anime {
+    0%, 100%{
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 300% 0;
+    }
+    
+} */

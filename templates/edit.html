@@ -1,0 +1,106 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+
+<div class="container">
+  <h2>Bemor ma'lumotlarini o'zgartirish</h2>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <label for="first_name">Ismi:</label>
+      <input
+        type="text"
+        value="{{person.first_name}}"
+        name="first_name"
+        class="form-control"
+        id=""
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="last_name">Familiyasi:</label>
+      <input
+        type="text"
+        value="{{person.last_name}}"
+        name="last_name"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="age">Yoshi:</label>
+      <input
+        type="number"
+        value="{{person.age}}"
+        name="age"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="address">Manzil:</label>
+      <input
+        type="text"
+        value="{{person.address}}"
+        name="address"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="phone">Telefon raqami:</label>
+      <input
+        type="tel"
+        value="{{person.phone}}"
+        name="phone"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="img">Pasport rasmi:</label>
+      <input
+        type="file"
+        value="{{person.img.url}}"
+        accept=".png, .jpg, .jpeg"
+        name="img"
+        class="form-control-file"
+        
+      />
+    </div>
+    <div class="form-group">
+      <label for="vacsina">Vaksina turi:</label>
+      <select name="vac_id" class="form-control" id="">
+        {% for vak in vacsina %} 
+        {% if vak.id == person.vacsina.id %}
+        <option selected value="{{vak.id}}">{{vak.name}}</option>
+        {% else %}
+        <option value="{{vak.id}}">{{vak.name}}</option>
+        {% endif %} {% endfor %}
+      </select>
+    </div>
+<p>Vaksina olish bosqichlari: </p>
+    <div class="form-check">
+      <input type="checkbox" name="step1" value="True" {% if person.step1 %} checked {% endif %} id="check1" class="form-check-input">
+      <label for="check1"  class="form-check-label">Step1</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" name="step2" {% if person.step2 %} checked {% endif %} value="{{person.step2}}" id="check2" class="form-check-input">
+      <label for="check2"  class="form-check-label">Step2</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" name="step3" {% if person.step3 %} checked {% endif %} value="{{person.step3}}" id="check3" class="form-check-input">
+      <label for="check3" class="form-check-label">Step3</label>
+    </div>
+
+
+    
+
+
+
+    <button type="submit" class="btn btn-primary">Qo'shish</button>
+  </form>
+</div>
+
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>

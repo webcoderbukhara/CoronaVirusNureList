@@ -1,0 +1,49 @@
+{% load static %}
+
+<link
+  rel="stylesheet"
+ 
+  href="{% static 'css/sertifikat.css' %}"
+/>
+
+<div class="container">
+
+  <div class="head">
+    <div>
+      O'ZBEKISTON RESPUBLIKASI <br />
+      SOG'LIQNI SAQLASH VAZIRLIGI<br />
+      KORONAVIRUS (COVID-19)GA QARSHI<br />
+      EMLAGANLIK TO'G'RISIDA<br />
+      SERTIFIKAT<br />
+    </div>
+
+    <img src="./../media/icons/Airena wallapack 142 (1).jpg" alt="" />
+
+    <div>
+      MINISTRY OF HELATH OF THE REPUBLIC OF UZBEKISTAN CORONAVIRUS (COVID-19)
+      VACCINATION CERTIFICATE
+    </div>
+  </div>
+
+    <div class="body">
+        <p><b>ID:</b>{{person.id}}</p>
+      <p>  Emlagan shaxs: <b> {{person.doctor.first_name}}  {{person.doctor.last_name}}</b></p>
+      <p>Emlash vaqti: {{person.date}}</p>
+      <p>
+          Passport: <br>
+          <img src="{{person.img.url}}" alt="Password rasmi">
+      </p>
+      <p>Ismi va familiyasi: <b>{{person.first_name}}  {{person.last_name}}</b></p>
+      <p>Yoshi: <b>{{person.age}}</b></p>
+
+      <p>Berilgan vaqt: <b>{{date}}</b></p>
+
+    </div>
+
+
+
+
+
+</div>
+
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>

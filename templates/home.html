@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/home.css' %}"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Assalomu aleykum {{user.first_name}} {{user.last_name}}</h1>
+      <button id="logout" class="btn btn-danger"><a href="{% url 'logout' %}">logout</a></button>
+     
+    </div>
+<form action="" method="POST"> {% csrf_token %}
+     <header>
+      <div id="search-container">
+        <input type="text" name="search" id="" placeholder="Ismi yoki familiyasi...">
+        <button class="btn btn-primary">Search</button>
+       </div>
+       <button class="btn btn-light">
+        <a href="{% url 'create' %}">Add</a>
+       </button>
+     </header>
+
+
+</form>
+    <hr>
+    <div class="container">
+      <h3 class="alert alert-info">Bemorlar haqida ma'lumot</h3>
+    </div>
+<br>
+    
+     <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">№</th>
+            <th scope="col">Ismi-familiya</th>
+            <th scope="col">Telefon raqam</th>
+            <th scope="col">Vaksina turi</th>
+            <th scope="col">Vaksina bosqichlari</th>
+            <th scope="col">Amallar</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% for person in persons %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{person.first_name}} {{person.last_name}} </td>
+            <td> {{person.phone}} </td>
+            <td>{{person.vacsina.name}} </td>
+            <td> 
+              <div class="step">
+        
+                {% if person.step1 %}
+                <button class="btn btn-success">Olindi</button>
+                {% else %}
+                <form method="POST">{% csrf_token %}
+                  <button class="btn btn-warning"  name="step1"  value="{{person.id}}" type="submit"  >
+                    step 1 </button>
+                </form>
+                {% endif %}
+                
+                
+                {% if person.step2 %}
+                <button class="btn btn-success">Olindi</button>
+                {% if person.vacsina.name != vac %}
+                <a href="{% url 'sertificat' person.id %}" >Sertifikat olish</a>
+                {% endif %}
+                {% else %} 
+                        {% if person.step1 %}
+                  <form method="POST">
+                    {% csrf_token %}
+                    <button  class="btn btn-warning" name="step2" value="{{person.id}}" type="submit"  >
+                     step 2
+                    </button>
+                  </form>
+                      {% else %}
+                    <button class="btn btn-warning"> step 2 </button>
+                     {% endif %} 
+        
+                {% endif %}
+        
+                {% if person.vacsina.name == vac %} 
+                    {% if person.step3 %}
+                <button class="btn btn-success">Olindi</button>
+                
+                <a href="{% url 'sertificat' person.id %}">Sertifikat olish</a>
+        
+                    
+                    {% else %}
+                    {% if person.step1 and person.step2 %}
+                <form method="POST">
+                  {% csrf_token %}
+                  <button class="btn btn-warning" name="step3" value="{{person.id}}"  type="submit">
+                    step 3
+                  </button>
+                </form>
+                    {% else %}
+                <button class="btn btn-warning">
+                  step 3
+                </button>
+        
+                   {% endif %}
+                {% endif %} {% endif %}
+              </div>
+            </td>
+            <td class="info">
+              <button class="btn btn-light"><a href="{% url 'edit' person.id %}">O'zgartirish</a> </button>
+              <button class="btn btn-light"><a href="{% url 'detail' person.id %}">Ma'lumot</a> </button>
+            </td> 
+              
+
+
+          </tr>
+          {% endfor %}
+        </tbody>
+
+
+
+
+
+      </table>
+     </div>
+       
+      
+      
+
+      
+
+    </div>
+
+    
+
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  </body>
+</html>

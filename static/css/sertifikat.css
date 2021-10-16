@@ -1,0 +1,43 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 700px;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid grey;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #aaa;
+}
+
+.head{width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+.head div{
+    width: 33vw;
+    text-align: center;
+}
+.head img{
+    width: 120px;
+    height: 120px;
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.body{
+    padding: 12px;
+    line-height: 35px;
+    font-size: 20px;
+}
+
+.body img{
+    
+    width: 300px;
+}

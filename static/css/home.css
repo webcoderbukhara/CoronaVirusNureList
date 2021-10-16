@@ -1,0 +1,78 @@
+
+.container:first-child{
+    margin: 17px;
+}
+
+#logout{
+    padding: 3px 7px;
+    font-size: 14px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#logout a{
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.step{
+    display: flex;
+
+}
+.step .btn{
+    padding: 3px 5px;
+    font-size: 13px;
+    margin: 3px;
+}
+
+.info{
+    display: flex;
+}
+ .info .btn{
+    padding: 3px 4px;
+    font-size: 12px;
+    margin: 3px;
+}
+.info .btn a{
+    text-decoration: none;
+}
+
+header
+{
+    background: #0048AA;
+    display: flex;
+   justify-content: space-between;
+   align-items: center; 
+    padding: 0 20px;
+    
+    border-radius: 10px 0 0 0;
+    box-shadow: 0 1px 3px -1px rgba(0,0,0,0.75);
+    z-index: 1;
+}
+
+
+
+
+#search-container input{
+    width: 50vw;
+    color: #eee;
+    outline: none;
+    font-weight: bold;
+    border-radius: 2px;
+    height: 35px;
+    border: 0;
+    padding: 7px;
+    padding-left: 32px;
+    
+    font-size: 1rem;
+    background: url(../../media/icons/search.svg) no-repeat rgba(255,255,255,0.3);
+    background-position: 12px center;
+    background-size: 15px 15px;
+    margin: 10px;
+}
+#search-container input::placeholder{
+    color: rgba(255, 255, 255, 0.684);
+    font-weight: bold;
+    margin: 12px;
+}

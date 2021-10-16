@@ -1,0 +1,61 @@
+
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+
+<div class="container">
+    <h2>Bemor ma'lumotlari</h2>
+    <hr>
+    <p><b>ID:</b> {{person.id}}   </p>
+
+    <p><b>Ismi:</b> {{person.first_name}}   </p>
+    <p><b>Familiyasi:</b> {{person.last_name}}   </p>
+
+    <p><b>Yoshi:</b> {{person.age}}   </p>
+
+    <p><b>Manzili:</b> {{person.address}}  </p>
+    <p><b>Olgan vaksina turi:</b> {{person.vacsina.name}}   </p>
+    <p><b>Telefon raqami:</b> {{person.phone}}   </p>
+    <p><b>Emlagan doktor(hamshira):</b> {{person.doctor.first_name}}
+    {{person.doctor.last_name}}   </p>
+    <p><b>Emlangan vaqti: </b> {{person.date}}  </p>
+    <p><b>Passport: </b><br>
+        <img src="{{person.img.url}}" alt=""></p>
+
+    
+
+    
+    
+    
+    
+
+    
+
+    
+
+    
+    
+    
+
+   
+    
+    
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>

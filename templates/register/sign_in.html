@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/sign_in.css' %}">
+  </head>
+  <body>
+     
+   
+      <div class="container">
+          <form action="{% url 'in' %}" method="POST">
+      {% csrf_token %}
+
+          <h2>Login</h2>
+        <div class="inputs">
+          <input type="text" name="user_name_2" required />
+          <label for=""> Username </label>
+        </div>
+        <div class="inputs">
+          <input
+            type="password"
+            class="password"
+            name="password_3"
+            id=""
+            required
+          />
+          <label for=""> Password </label>
+          <img
+            class="passImg"
+            src="../../media/icons/eye.svg"
+            alt=""
+            onclick="passwordShow()"
+          />
+        </div>
+       
+        <input type="submit" class="btn" value="SEND" />
+         </form>
+         <a class="urlUp" href="{% url 'up' %}">Registration</a>
+ </div>
+    <script src="{% static 'javascript/register.js' %}">
+     
+    </script>
+  </body>
+</html>
